@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useRef, useState } from 'react';
-import { Color, Mesh, TextureLoader } from 'three';
+import { Color, Mesh } from 'three';
 
 export default function Atmosphere(props: JSX.IntrinsicElements['mesh']) {
   // This reference will give us direct access to the THREE.Mesh object
@@ -11,10 +11,10 @@ export default function Atmosphere(props: JSX.IntrinsicElements['mesh']) {
 
   return (
     <mesh {...props} ref={ref}>
-      <sphereGeometry args={[2.2, 64, 64]} />
+      <sphereGeometry args={[6.478137, 64, 64]} />
       <meshBasicMaterial
         wireframe={false}
-        opacity={0.2}
+        opacity={0.1}
         transparent={true}
         color={new Color(0xffffff)}
       />

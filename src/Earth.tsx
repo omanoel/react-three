@@ -11,11 +11,22 @@ export default function Earth(props: JSX.IntrinsicElements['mesh']) {
   const [clicked, click] = useState(false);
 
   const texture = new TextureLoader().load('assets/8k_earth_daymap.jpg');
+  const textureSpec = new TextureLoader().load(
+    'assets/8k_earth_specular_map.tif'
+  );
+  const textureNormal = new TextureLoader().load(
+    'assets/8k_earth_normal_map.tif'
+  );
 
   return (
     <mesh {...props} ref={ref}>
-      <sphereGeometry args={[2, 64, 64]} />
-      <meshBasicMaterial wireframe={false} map={texture} />
+      <sphereGeometry args={[6.378137, 64, 64]} />
+      <meshPhongMaterial
+        wireframe={false}
+        map={texture}
+        specularMap={textureSpec}
+        normalMap={textureNormal}
+      />
       <Atmosphere />
     </mesh>
   );
